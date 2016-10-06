@@ -1,6 +1,5 @@
 package domain.myDocument;
 
-import java.lang.reflect.Type;
 /**
  * Created by gnan on 10/6/16.
  */
@@ -8,6 +7,18 @@ import java.lang.reflect.Type;
 public class Document {
 
     private String name;
+
+    private Type type;
+
+    private String location;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Type getType() {
         return type;
@@ -17,7 +28,13 @@ public class Document {
         this.type = type;
     }
 
-    private Type type;
+    public String getLocation() {
+        return location;
+    }
 
-    private String location;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+
 }

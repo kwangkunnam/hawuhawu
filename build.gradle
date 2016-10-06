@@ -1,8 +1,6 @@
-apply plugin: 'application'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-
-mainClassName = System.getProperty("mainClass")
+apply plugin: 'java'
+group='domain'
+version='1.0'
 
 repositories {
     mavenCentral()
@@ -10,5 +8,11 @@ repositories {
 
 dependencies {
     compile 'org.springframework:spring-context:4.0.6.RELEASE'
-    compile 'org.springframework.boot:spring-boot-starter-web:1.1.4.RELEASE'
+    testCompile("junit:junit:4.11")
+}
+
+test{
+    testLogging{
+        events 'started', 'passed'
+    }
 }

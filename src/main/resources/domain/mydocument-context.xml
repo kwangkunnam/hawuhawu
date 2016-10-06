@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="engine" class="domain.myDocument.SearchEngineService">
+        <property name="documentDAO" ref="documentDAO"/>
+    </bean>
+
+    <bean id="documentDAO" class="domain.myDocument.DocumentRepository">
+        <property name="doc1" ref="doc1"/>
+        <property name="doc2" ref="doc2"/>
+        <property name="doc3" ref="doc3"/>
+        <property name="doc4" ref="doc4"/>
+    </bean>
+
+    <bean id="doc1" class="domain.myDocument.Document">
+        <property name="name" value="Book Template"/>
+        <property name="type" ref="pdfType"/>
+        <property name="location" value="Location1"/>
+    </bean>
+
+    <bean id="doc2" class="domain.myDocument.Document">
+        <property name="name" value="Sample Contract"/>
+        <property name="type">
+            <bean id="pdfType" class="domain.myDocument.Type">
+                <property name="name" value="PDF"/>
+                <property name="desc" value="Portable Document Format"/>
+                <property name="extention" value=".pdf"/>
+            </bean>
+        </property>
+        <property name="location" value="Location2"/>
+    </bean>
+
+    <bean id="doc3" class="domain.myDocument.Document">
+        <property name="name" value="Clustering with RabbitMQ"/>
+        <property name="type" ref="noteType"/>
+        <property name="location" value="Location3"/>
+    </bean>
+
+    <bean id="doc4" class="domain.myDocument.Document">
+        <property name="name" value="Pro Spring Security Book"/>
+        <property name="type" ref="webType"/>
+        <property name="location" value="Location4"/>
+    </bean>
+
+    <bean id="webType" class="domain.myDocument.Type">
+        <property name="desc" value="WEB"/>
+        <property name="name" value="Web Link"/>
+        <property name="extention" value=".url"/>
+    </bean>
+
+    <bean id="noteType" class="domain.myDocument.Type">
+        <property name="name" value="NOTE"/>
+        <property name="desc" value="Text Notes"/>
+        <property name="extention" value=".txt"/>
+    </bean>
+
+    <bean id="pdfType" class="domain.myDocument.Type">
+        <property name="name" value="PDF"/>
+        <property name="desc" value="Portable Document Format"/>
+        <property name="extention" value=".pdf"/>
+    </bean>
+
+</beans>

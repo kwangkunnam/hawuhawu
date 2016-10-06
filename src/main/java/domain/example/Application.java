@@ -1,4 +1,4 @@
-package domain;
+package domain.example;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
